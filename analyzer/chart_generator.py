@@ -5,7 +5,17 @@ import matplotlib.pyplot as plt
 # Charts Folder
 # ==========================================================
 
-CHART_DIR = "assets/charts"
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
+
+CHART_DIR = os.path.join(
+    BASE_DIR,
+    "assets",
+    "charts"
+)
 
 os.makedirs(CHART_DIR, exist_ok=True)
 

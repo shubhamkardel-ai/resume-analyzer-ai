@@ -1,6 +1,6 @@
 import gradio as gr
-
-from analyzer.resume_service import analyze_resume
+from dotenv import load_dotenv
+from analyzer.resume_service import analyze_resume as analyze_resume_service
 
 # ==========================================================
 # Theme
@@ -138,7 +138,7 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
     )
 
     analyze_btn.click(
-        fn=analyze_resume,
+        fn=analyze_resume_service,
         inputs=[
             resume_file,
             job_description
