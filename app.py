@@ -1,10 +1,6 @@
 import gradio as gr
 
-from analyzer.pdf_reader import extract_text_from_pdf
-from analyzer.skill_extractor import extract_skills
-from analyzer.ats_score import calculate_ats_score
-from analyzer.jd_matcher import match_resume_with_job
-from analyzer.ai_feedback import generate_feedback
+from analyzer.resume_service import analyze_resume
 
 # ==========================================================
 # Theme
@@ -15,145 +11,6 @@ theme = gr.themes.Soft(
     secondary_hue="cyan",
     neutral_hue="slate"
 )
-
-# ==========================================================
-# Resume Analyzer
-# ==========================================================
-
-def analyze_resume(pdf, jd):
-
-    if pdf is None:
-        return (
-            "",
-            "",
-            0,
-            "Please upload a PDF.",
-            0,
-            "No Job Description Provided",
-            ""
-        )
-
-    # ------------------------------------------------------
-    # Extract Resume Text
-    # ------------------------------------------------------
-
-    text = extract_text_from_pdf(pdf)
-
-    # ------------------------------------------------------
-    # Extract Skills
-    # ------------------------------------------------------
-
-    skills = extract_skills(text)
-
-    skills_output = (
-        "\n".join(skills)
-        if skills
-        else "No technical skills detected."
-    )
-
-    # ------------------------------------------------------
-    # ATS Score
-    # ------------------------------------------------------
-
-    ats_score, ats_feedback, ats_breakdown = calculate_ats_score(
-        text,
-        skills
-    )
-
-    feedback_output = (
-        "\n".join(ats_feedback)
-        if ats_feedback
-        else "Excellent Resume!"
-    )
-
-    breakdown_output = ""
-
-    for key, value in ats_breakdown.items():
-        breakdown_output += f"{key:<20}: {value}\n"
-
-    # ------------------------------------------------------
-    # Job Matching
-    # ------------------------------------------------------
-
-    job_match = 0
-    missing_output = "No Job Description Provided"
-    missing_skills = []
-    resume_skill_count = 0
-    job_skill_count = 0
-    matched_skill_count = 0
-    missing_skill_count = 0
-    matched_output = "No Job Description Provided"
-
-    if jd.strip():
-        result = match_resume_with_job(
-            text,
-            jd
-        )
-
-        job_match = result["score"]
-
-        missing_skills = result["missing"]
-
-        matched_skills = result["matched"]
-
-        matched_output = (
-            "\n".join(matched_skills)
-            if matched_skills
-            else "No matching skills found."
-        )
-
-        resume_skill_count = result["resume_skills"]
-
-        job_skill_count = result["job_skills"]
-
-        matched_skill_count = result["matched_count"]
-
-        missing_skill_count = result["missing_count"]
-
-        missing_output = (
-            "\n".join(missing_skills)
-            if missing_skills
-            else "Perfect Match!"
-        )
-
-    # ------------------------------------------------------
-    # AI Feedback
-    # ------------------------------------------------------
-
-    if jd.strip():
-
-        ai_feedback = generate_feedback(
-            text,
-            ats_score,
-            missing_skills
-        )
-
-    else:
-
-        ai_feedback = (
-            "Upload a Job Description to receive AI-powered feedback."
-        )
-
-    # ------------------------------------------------------
-    # Return Outputs
-    # ------------------------------------------------------
-
-    return (
-        text,
-        skills_output,
-        ats_score,
-        feedback_output,
-        breakdown_output,
-        job_match,
-        resume_skill_count,
-        job_skill_count,
-        matched_skill_count,
-        missing_skill_count,
-        matched_output,
-        missing_output,
-        ai_feedback
-    )
-
 
 # ==========================================================
 # User Interface
@@ -259,6 +116,17 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
         lines=10
     )
 
+    with gr.Row():
+        skill_chart_image = gr.Image(
+            label="🥧 Skill Matching Chart",
+            type="filepath"
+        )
+
+        ats_chart_image = gr.Image(
+            label="📊 ATS Breakdown Chart",
+            type="filepath"
+        )
+
     ai_feedback_box = gr.Textbox(
         label="🤖 AI Career Coach",
         lines=14
@@ -288,6 +156,8 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             missing_skill_count,
             matched_skills,
             missing_skills,
+            skill_chart_image,
+            ats_chart_image,
             ai_feedback_box
         ]
     )
