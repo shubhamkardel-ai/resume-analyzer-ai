@@ -3,6 +3,7 @@ from analyzer.skill_extractor import extract_skills
 from analyzer.ats_score import calculate_ats_score
 from analyzer.jd_matcher import match_resume_with_job
 from analyzer.ai_feedback import generate_feedback
+from analyzer.optimizer import optimize_resume
 from analyzer.chart_generator import (
     create_skill_pie_chart,
     create_ats_bar_chart,
@@ -129,6 +130,7 @@ def analyze_resume(pdf, jd):
             ats_score,
             missing_skills
         )
+        optimized_resume = optimize_resume(text)
 
     else:
 
@@ -138,19 +140,20 @@ def analyze_resume(pdf, jd):
         )
 
     return (
-        text,
-        skills_output,
         ats_score,
-        feedback_output,
-        breakdown_output,
-        job_match,
+        job_match_score,
         resume_skill_count,
         job_skill_count,
         matched_skill_count,
         missing_skill_count,
+        skills_output,
         matched_output,
         missing_output,
+        feedback_output,
+        breakdown_output,
         skill_chart,
         ats_chart,
-        ai_feedback
+        ai_feedback,
+        optimized_resume,
+        text,
     )

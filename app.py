@@ -132,6 +132,10 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
         lines=14
     )
 
+    optimized_resume_box = gr.Markdown(
+        label="✨ AI Resume Optimizer"
+    )
+
     resume_preview = gr.Textbox(
         label="📄 Resume Preview",
         lines=20
@@ -144,21 +148,22 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             job_description
         ],
         outputs=[
-            resume_preview,
-            detected_skills,
             ats_score_box,
-            ats_feedback,
-            ats_breakdown_box,
             job_match_box,
             resume_skill_count,
             job_skill_count,
             matched_skill_count,
             missing_skill_count,
+            detected_skills,
             matched_skills,
             missing_skills,
+            ats_feedback,
+            ats_breakdown_box,
             skill_chart_image,
             ats_chart_image,
-            ai_feedback_box
+            ai_feedback_box,
+            ai_feedback_box,
+            optimized_resume_box
         ]
     )
 
