@@ -4,6 +4,8 @@ from analyzer.ats_score import calculate_ats_score
 from analyzer.jd_matcher import match_resume_with_job
 from analyzer.ai_feedback import generate_feedback
 from analyzer.optimizer import optimize_resume
+from analyzer.report_generator import generate_report
+from analyzer.cover_letter import generate_cover_letter
 from analyzer.chart_generator import (
     create_skill_pie_chart,
     create_ats_bar_chart,
@@ -14,21 +16,24 @@ def analyze_resume(pdf, jd):
 
     if pdf is None:
         return (
-            "",
-            "",
-            0,
+            0,                  # ATS Score
+            0,                  # Job Match
+            0,                  # Resume Skills
+            0,                  # Job Skills
+            0,                  # Matched Skills
+            0,                  # Missing Skills
+            "",                 # Skills Output
+            "",                 # Matched Output
+            "",                 # Missing Output
             "Please upload a PDF.",
             "",
-            0,
-            0,
-            0,
-            0,
-            0,
+            None,
+            None,
+            "",
             "",
             "",
             None,
-            None,
-            ""
+            "",
         )
 
     # ------------------------------------------------------
@@ -38,7 +43,7 @@ def analyze_resume(pdf, jd):
     text = extract_text_from_pdf(pdf)
 
     # ------------------------------------------------------
-    # Skills
+    # Skill Extraction
     # ------------------------------------------------------
 
     skills = extract_skills(text)
@@ -50,7 +55,7 @@ def analyze_resume(pdf, jd):
     )
 
     # ------------------------------------------------------
-    # ATS
+    # ATS Score
     # ------------------------------------------------------
 
     ats_score, ats_feedback, ats_breakdown = calculate_ats_score(
@@ -70,10 +75,11 @@ def analyze_resume(pdf, jd):
     )
 
     # ------------------------------------------------------
-    # Job Matching
+    # Default Values
     # ------------------------------------------------------
 
     job_match = 0
+
     matched_output = ""
     missing_output = ""
     missing_skills = []
@@ -82,6 +88,15 @@ def analyze_resume(pdf, jd):
     job_skill_count = 0
     matched_skill_count = 0
     missing_skill_count = 0
+
+    ai_feedback = ""
+    optimized_resume = ""
+    cover_letter = ""
+    report_path = None
+
+    # ------------------------------------------------------
+    # Job Matching + AI
+    # ------------------------------------------------------
 
     if jd.strip():
 
@@ -92,19 +107,56 @@ def analyze_resume(pdf, jd):
 
         job_match = result["score"]
 
-        matched_output = "\n".join(result["matched"])
+        matched_output = "\n".join(
+            result["matched"]
+        )
 
-        missing_output = "\n".join(result["missing"])
+        missing_output = "\n".join(
+            result["missing"]
+        )
 
         missing_skills = result["missing"]
 
         resume_skill_count = result["resume_skills"]
-
         job_skill_count = result["job_skills"]
-
         matched_skill_count = result["matched_count"]
-
         missing_skill_count = result["missing_count"]
+
+        ai_feedback = generate_feedback(
+            text,
+            ats_score,
+            missing_skills
+        )
+
+        optimized_resume = optimize_resume(
+            text
+        )
+
+        cover_letter = generate_cover_letter(
+            text,
+            jd
+        )
+
+        report_path = generate_report(
+            ats_score=ats_score,
+            job_match=job_match,
+            matched_skills=matched_output,
+            missing_skills=missing_output,
+            ats_breakdown=breakdown_output,
+            ai_feedback=ai_feedback,
+            optimized_resume=optimized_resume,
+        )
+
+    else:
+
+        ai_feedback = (
+            "Upload a Job Description "
+            "to receive AI-powered feedback."
+        )
+
+        optimized_resume = ""
+        cover_letter = ""
+        report_path = None
 
     # ------------------------------------------------------
     # Charts
@@ -120,28 +172,12 @@ def analyze_resume(pdf, jd):
     )
 
     # ------------------------------------------------------
-    # AI Feedback
+    # Return
     # ------------------------------------------------------
-
-    if jd.strip():
-
-        ai_feedback = generate_feedback(
-            text,
-            ats_score,
-            missing_skills
-        )
-        optimized_resume = optimize_resume(text)
-
-    else:
-
-        ai_feedback = (
-            "Upload a Job Description "
-            "to receive AI-powered feedback."
-        )
 
     return (
         ats_score,
-        job_match_score,
+        job_match,
         resume_skill_count,
         job_skill_count,
         matched_skill_count,
@@ -155,5 +191,7 @@ def analyze_resume(pdf, jd):
         ats_chart,
         ai_feedback,
         optimized_resume,
+        cover_letter,
+        report_path,
         text,
     )

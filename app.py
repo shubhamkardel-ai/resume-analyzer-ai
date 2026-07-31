@@ -127,13 +127,20 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             type="filepath"
         )
 
-    ai_feedback_box = gr.Textbox(
-        label="🤖 AI Career Coach",
-        lines=14
+    ai_feedback_box = gr.Markdown(
+        label="🤖 AI Career Coach"
     )
 
     optimized_resume_box = gr.Markdown(
         label="✨ AI Resume Optimizer"
+    )
+
+    cover_letter_box = gr.Markdown(
+        label="💌 AI Cover Letter"
+    )
+
+    report_file = gr.File(
+        label="📄 Download ATS Report"
     )
 
     resume_preview = gr.Textbox(
@@ -162,8 +169,10 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             skill_chart_image,
             ats_chart_image,
             ai_feedback_box,
-            ai_feedback_box,
-            optimized_resume_box
+            optimized_resume_box,
+            cover_letter_box,
+            report_file,
+            resume_preview,
         ]
     )
 
