@@ -2,6 +2,7 @@ import gradio as gr
 from dotenv import load_dotenv
 from analyzer.resume_service import analyze_resume as analyze_resume_service
 from analyzer.interview_service import start_interview
+from analyzer.resume_chat import ask_resume
 
 # ==========================================================
 # Theme
@@ -202,6 +203,7 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
         Practice AI-generated interview questions based on your resume.
         """)
 
+
             with gr.Row():
                 interview_resume = gr.File(
                     label="📄 Upload Resume (PDF)",
@@ -254,6 +256,46 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                     communication_score,
                     confidence_score,
                     questions
+                ]
+            )
+
+        with gr.Tab("💬 Resume Chat"):
+            gr.Markdown(
+                """
+        # 💬 AI Resume Chat
+
+        Ask questions about your resume.
+                """
+            )
+
+            with gr.Row():
+                chat_resume = gr.File(
+                    label="📄 Upload Resume (PDF)",
+                    file_types=[".pdf"]
+                )
+
+                question = gr.Textbox(
+                    label="❓ Ask a Question",
+                    placeholder="Example: What are my skills?"
+                )
+
+            ask_btn = gr.Button(
+                "💬 Ask AI",
+                variant="primary"
+            )
+
+            answer = gr.Markdown(
+                label="🤖 AI Response"
+            )
+
+            ask_btn.click(
+                fn=ask_resume,
+                inputs=[
+                    chat_resume,
+                    question
+                ],
+                outputs=[
+                    answer
                 ]
             )
 
