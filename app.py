@@ -2,7 +2,7 @@ import gradio as gr
 from dotenv import load_dotenv
 from analyzer.resume_service import analyze_resume as analyze_resume_service
 from analyzer.interview_service import start_interview
-from analyzer.resume_chat import ask_resume
+from analyzer.resume_chat_service import resume_chat
 
 # ==========================================================
 # Theme
@@ -289,7 +289,7 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             )
 
             ask_btn.click(
-                fn=ask_resume,
+                fn=resume_chat,
                 inputs=[
                     chat_resume,
                     question
