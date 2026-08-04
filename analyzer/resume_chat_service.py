@@ -1,37 +1,29 @@
 from analyzer.pdf_reader import extract_text_from_pdf
-from analyzer.resume_parser import extract_section
+from analyzer.llm_service import ask_llm
 
 
 def resume_chat(pdf, question):
-    """
-    Simple Resume Chat Service (Version 1)
-
-    Reads the resume and answers basic questions.
-    """
 
     if pdf is None:
         return "Please upload your resume."
 
     resume_text = extract_text_from_pdf(pdf)
 
-    question = question.lower()
+    prompt = f"""
+You are an AI Resume Assistant.
 
-    question = question.lower()
+Answer the user's question ONLY using the resume below.
 
-    if "skill" in question:
-        return extract_section(resume_text, "SKILLS")
+If the answer is not available in the resume, reply:
+"I couldn't find that information in the resume."
 
-    elif "project" in question:
-        return extract_section(resume_text, "PROJECTS")
+Resume:
+{resume_text}
 
+Question:
+{question}
 
-    elif "experience" in question or "summary" in question:
-        return extract_section(resume_text, "EXPERIENCE")
+Answer:
+"""
 
-    elif "education" in question:
-        return extract_section(resume_text, "EDUCATION")
-
-    elif "certification" in question or "certificate" in question:
-        return extract_section(resume_text, "CERTIFICATIONS")
-
-    return "Please ask about Skills, Projects, Experience, Education, or Certifications."
+    return ask_llm(prompt)
