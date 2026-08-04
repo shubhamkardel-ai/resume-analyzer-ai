@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 from analyzer.resume_service import analyze_resume as analyze_resume_service
 from analyzer.interview_service import start_interview
 from analyzer.resume_chat_service import resume_chat
+from analyzer.interview_feedback import evaluate_answer
+from analyzer.interview_session import next_question
 
 # ==========================================================
 # Theme
@@ -221,6 +223,10 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                 variant="primary"
             )
 
+            next_btn = gr.Button(
+                "➡️ Next Question"
+            )
+
             gr.Markdown("---")
 
             with gr.Row():
@@ -244,6 +250,21 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                 label="❓ AI Interview Questions"
             )
 
+            answer_box = gr.Textbox(
+                label="💬 Your Answer",
+                lines=8,
+                placeholder="Type your answer here..."
+            )
+
+            evaluate_btn = gr.Button(
+                "✅ Evaluate Answer",
+                variant="primary"
+            )
+
+            feedback_box = gr.Markdown(
+                label="🤖 AI Interview Feedback"
+            )
+
             start_btn.click(
                 fn=start_interview,
                 inputs=[
@@ -256,6 +277,23 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                     communication_score,
                     confidence_score,
                     questions
+                ]
+            )
+
+            next_btn.click(
+                fn=next_question,
+                inputs=[],
+                outputs=[questions]
+            )
+
+            evaluate_btn.click(
+                fn=evaluate_answer,
+                inputs=[
+                    questions,
+                    answer_box
+                ],
+                outputs=[
+                    feedback_box
                 ]
             )
 
@@ -282,6 +320,10 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             ask_btn = gr.Button(
                 "💬 Ask AI",
                 variant="primary"
+            )
+
+            feedback_box = gr.Markdown(
+                label="🤖 AI Feedback"
             )
 
             answer = gr.Markdown(
