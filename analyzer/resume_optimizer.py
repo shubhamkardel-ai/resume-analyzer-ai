@@ -12,19 +12,19 @@ def optimize_resume(pdf, job_description):
     prompt = f"""
 You are an expert ATS Resume Writer.
 
-Your task is to improve the resume for the given Job Description.
+Rewrite the resume to better match the given Job Description.
 
 Rules:
 
-- Do NOT invent experience.
-- Do NOT invent projects.
-- Do NOT invent skills.
-- Rewrite existing content professionally.
+- Never invent experience.
+- Never invent projects.
+- Never invent certifications.
+- Never invent skills.
+- Improve wording.
 - Improve ATS keywords.
 - Improve formatting.
 - Improve bullet points.
-- Suggest stronger action verbs.
-- Highlight missing keywords from the job description.
+- Keep everything truthful.
 - Return the optimized resume in Markdown.
 
 Resume:

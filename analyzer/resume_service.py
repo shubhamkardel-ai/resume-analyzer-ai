@@ -171,6 +171,11 @@ def analyze_resume(pdf, jd):
         ats_breakdown
     )
 
+    print("Skill Chart:", skill_chart)
+    print("ATS Chart:", ats_chart)
+    print(type(skill_chart))
+    print(type(ats_chart))
+
     # ------------------------------------------------------
     # Return
     # ------------------------------------------------------

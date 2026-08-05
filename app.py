@@ -140,14 +140,12 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             )
 
             with gr.Row():
-                skill_chart_image = gr.Image(
-                    label="🥧 Skill Matching Chart",
-                    type="filepath"
+                skill_chart_image = gr.Plot(
+                    label="🥧 Skill Matching Chart"
                 )
 
-                ats_chart_image = gr.Image(
-                    label="📊 ATS Breakdown Chart",
-                    type="filepath"
+                ats_chart_image = gr.Plot(
+                    label="📊 ATS Breakdown Chart"
                 )
 
             ai_feedback_box = gr.Markdown(

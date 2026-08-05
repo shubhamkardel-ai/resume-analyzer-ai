@@ -1,5 +1,9 @@
 import os
 import matplotlib.pyplot as plt
+import matplotlib
+from PIL import Image
+
+matplotlib.use("Agg")
 
 # ==========================================================
 # Charts Folder
@@ -118,9 +122,7 @@ def create_skill_pie_chart(matched_count, missing_count):
         facecolor=fig.get_facecolor()
     )
 
-    plt.close(fig)
-
-    return chart_path
+    return fig
 
 
 # ==========================================================
@@ -216,13 +218,13 @@ def create_ats_bar_chart(breakdown):
         "ats_breakdown_chart.png"
     )
 
+    fig.canvas.draw()
+
     plt.savefig(
         chart_path,
-        dpi=150,
+        dpi=200,
         bbox_inches="tight",
         facecolor=fig.get_facecolor()
     )
 
-    plt.close(fig)
-
-    return chart_path
+    return fig
