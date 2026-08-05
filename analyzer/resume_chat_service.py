@@ -10,20 +10,24 @@ def resume_chat(pdf, question):
     resume_text = extract_text_from_pdf(pdf)
 
     prompt = f"""
-You are an AI Resume Assistant.
+    You are an expert AI Resume Assistant.
 
-Answer the user's question ONLY using the resume below.
+    Use ONLY the information contained in the resume below.
 
-If the answer is not available in the resume, reply:
-"I couldn't find that information in the resume."
+    Rules:
+    - Never invent information.
+    - If the answer is not present, say:
+      "I couldn't find that information in the resume."
+    - Keep answers concise and professional.
+    - Use bullet points whenever appropriate.
 
-Resume:
-{resume_text}
+    Resume:
+    {resume_text}
 
-Question:
-{question}
+    User Question:
+    {question}
 
-Answer:
-"""
+    Answer:
+    """
 
     return ask_llm(prompt)

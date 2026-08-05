@@ -5,6 +5,7 @@ from analyzer.interview_service import start_interview
 from analyzer.resume_chat_service import resume_chat
 from analyzer.interview_feedback import evaluate_answer
 from analyzer.interview_session import next_question
+from analyzer.resume_optimizer import optimize_resume
 
 # ==========================================================
 # Theme
@@ -155,6 +156,11 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
 
             optimized_resume_box = gr.Markdown(
                 label="✨ AI Resume Optimizer"
+            )
+
+            optimize_btn = gr.Button(
+                "✨ Optimize Resume",
+                variant="primary"
             )
 
             cover_letter_box = gr.Markdown(
@@ -338,6 +344,17 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                 ],
                 outputs=[
                     answer
+                ]
+            )
+
+            optimize_btn.click(
+                fn=optimize_resume,
+                inputs=[
+                    resume_file,
+                    job_description
+                ],
+                outputs=[
+                    optimized_resume_box
                 ]
             )
 
