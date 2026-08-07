@@ -19,7 +19,7 @@ def ask_llm(prompt):
                 "content": prompt
             }
         ],
-        max_tokens=500
+        max_tokens=1500
     )
 
     return response.choices[0].message.content

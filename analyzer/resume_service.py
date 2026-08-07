@@ -41,12 +41,14 @@ def analyze_resume(pdf, jd):
     # ------------------------------------------------------
 
     text = extract_text_from_pdf(pdf)
+    print("1. PDF Extracted")
 
     # ------------------------------------------------------
     # Skill Extraction
     # ------------------------------------------------------
 
     skills = extract_skills(text)
+    print("2. Skills Extracted")
 
     skills_output = (
         "\n".join(skills)
@@ -62,6 +64,8 @@ def analyze_resume(pdf, jd):
         text,
         skills
     )
+
+    print("3. ATS Calculated")
 
     feedback_output = (
         "\n".join(ats_feedback)
@@ -105,6 +109,8 @@ def analyze_resume(pdf, jd):
             jd
         )
 
+        print("4. Job Matching Done")
+
         job_match = result["score"]
 
         matched_output = "\n".join(
@@ -122,30 +128,21 @@ def analyze_resume(pdf, jd):
         matched_skill_count = result["matched_count"]
         missing_skill_count = result["missing_count"]
 
+        print("5. Generating AI Feedback...")
+
         ai_feedback = generate_feedback(
             text,
             ats_score,
             missing_skills
         )
 
-        optimized_resume = optimize_resume(
-            text
-        )
+        print("6. AI Feedback Done")
 
-        cover_letter = generate_cover_letter(
-            text,
-            jd
-        )
+        optimized_resume = ""
 
-        report_path = generate_report(
-            ats_score=ats_score,
-            job_match=job_match,
-            matched_skills=matched_output,
-            missing_skills=missing_output,
-            ats_breakdown=breakdown_output,
-            ai_feedback=ai_feedback,
-            optimized_resume=optimized_resume,
-        )
+        cover_letter = ""
+
+        report_path = None
 
     else:
 
@@ -167,9 +164,15 @@ def analyze_resume(pdf, jd):
         missing_skill_count
     )
 
+    print("5. Skill Chart Done")
+
     ats_chart = create_ats_bar_chart(
         ats_breakdown
     )
+
+    print("6. ATS Chart Done")
+
+    print("Charts Created")
 
     print("Skill Chart:", skill_chart)
     print("ATS Chart:", ats_chart)
@@ -179,6 +182,8 @@ def analyze_resume(pdf, jd):
     # ------------------------------------------------------
     # Return
     # ------------------------------------------------------
+
+    print("Returning to Gradio")
 
     return (
         ats_score,

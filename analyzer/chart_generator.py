@@ -122,7 +122,8 @@ def create_skill_pie_chart(matched_count, missing_count):
         facecolor=fig.get_facecolor()
     )
 
-    return fig
+    plt.close(fig)
+    return chart_path
 
 
 # ==========================================================
@@ -227,4 +228,5 @@ def create_ats_bar_chart(breakdown):
         facecolor=fig.get_facecolor()
     )
 
-    return fig
+    plt.close(fig)
+    return chart_path

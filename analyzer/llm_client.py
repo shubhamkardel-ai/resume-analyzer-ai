@@ -74,7 +74,8 @@ def generate_text(
                     "content": prompt,
                 }
             ],
-            max_tokens=max_tokens,
+            max_tokens=400,
+            temperature=0.3,
         )
 
         return response.choices[0].message.content

@@ -140,12 +140,14 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             )
 
             with gr.Row():
-                skill_chart_image = gr.Plot(
-                    label="🥧 Skill Matching Chart"
+                skill_chart_image = gr.Image(
+                    label="🥧 Skill Match Chart",
+                    type="filepath"
                 )
 
-                ats_chart_image = gr.Plot(
-                    label="📊 ATS Breakdown Chart"
+                ats_chart_image = gr.Image(
+                    label="📊 ATS Breakdown Chart",
+                    type="filepath"
                 )
 
             ai_feedback_box = gr.Markdown(
@@ -361,4 +363,5 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
 # ==========================================================
 
 if __name__ == "__main__":
+    print("THIS IS MY APP")
     demo.launch()
