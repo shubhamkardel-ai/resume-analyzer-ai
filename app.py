@@ -68,17 +68,6 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
 
             with gr.Row():
 
-                interview_score = gr.Number(label="🏆 Overall Interview Score")
-                technical_score = gr.Number(label="💻 Technical Score")
-                communication_score = gr.Number(label="🗣 Communication Score")
-                confidence_score = gr.Number(label="🔥 Confidence Score")
-
-            questions = gr.Markdown(
-                label="📋 AI Interview Questions"
-            )
-
-            with gr.Row():
-
                 with gr.Column():
                     ats_score_box = gr.Slider(
                         minimum=0,
@@ -237,7 +226,8 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
             with gr.Row():
                 interview_resume = gr.File(
                     label="📄 Upload Resume (PDF)",
-                    file_types=[".pdf"]
+                    file_types=[".pdf"],
+                    type="filepath"
                 )
 
                 interview_job_description = gr.Textbox(
@@ -274,7 +264,7 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                     label="🔥 Confidence"
                 )
 
-            questions = gr.Markdown(
+            interview_questions = gr.Markdown(
                 label="❓ AI Interview Questions"
             )
 
@@ -304,23 +294,27 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                     technical_score,
                     communication_score,
                     confidence_score,
-                    questions
+                    interview_questions
                 ]
             )
 
             next_btn.click(
                 fn=next_question,
                 inputs=[],
-                outputs=[questions]
+                outputs=[interview_questions]
             )
 
             evaluate_btn.click(
                 fn=evaluate_answer,
                 inputs=[
-                    questions,
+                    interview_questions,
                     answer_box
                 ],
                 outputs=[
+                    interview_score,
+                    technical_score,
+                    communication_score,
+                    confidence_score,
                     feedback_box
                 ]
             )
