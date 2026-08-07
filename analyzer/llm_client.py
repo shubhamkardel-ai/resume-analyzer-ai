@@ -74,7 +74,7 @@ def generate_text(
                     "content": prompt,
                 }
             ],
-            max_tokens=400,
+            max_tokens=1500,
             temperature=0.3,
         )
 

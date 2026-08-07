@@ -1,31 +1,23 @@
-from analyzer.llm_client import generate_text
+from analyzer.llm_service import ask_llm
 
-def generate_cover_letter(resume, job_description):
-    """
-    Generate a professional AI cover letter.
-    """
+def generate_cover_letter(resume_text, job_description):
 
     prompt = f"""
-You are an expert HR recruiter.
+You are an expert career assistant.
 
-Write a professional one-page cover letter.
+Write a professional, ATS-friendly cover letter based on the candidate's resume
+and the target job description.
 
-Rules:
+Keep it concise and professional.
+Do not invent experience, skills, companies, or achievements.
 
-- Use the candidate's resume.
-- Match the job description.
-- Be professional.
-- Keep it ATS-friendly.
-- Do NOT invent experience.
-- Return only the cover letter in Markdown.
+RESUME:
+{resume_text}
 
-Resume:
-
-{resume}
-
-Job Description:
-
+JOB DESCRIPTION:
 {job_description}
+
+Write only the cover letter.
 """
 
-    return generate_text(prompt)
+    return ask_llm(prompt)

@@ -154,14 +154,37 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                 label="🤖 AI Career Coach"
             )
 
-            optimized_resume_box = gr.Markdown(
-                label="✨ AI Resume Optimizer"
-            )
+            # ==========================================================
+            # AI Resume Optimizer
+            # ==========================================================
+
+            gr.Markdown("## ✨ AI Resume Optimizer")
 
             optimize_btn = gr.Button(
                 "✨ Optimize Resume",
                 variant="primary"
             )
+
+            optimized_resume_box = gr.Markdown(
+                label="✨ Optimized Resume"
+            )
+
+            optimize_btn.click(
+                fn=optimize_resume,
+                inputs=[
+                    resume_file,
+                    job_description
+                ],
+                outputs=[
+                    optimized_resume_box
+                ]
+            )
+
+            # ==========================================================
+            # AI Cover Letter
+            # ==========================================================
+
+            gr.Markdown("## 💌 AI Cover Letter")
 
             cover_letter_box = gr.Markdown(
                 label="💌 AI Cover Letter"
@@ -197,10 +220,9 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                     skill_chart_image,
                     ats_chart_image,
                     ai_feedback_box,
-                    optimized_resume_box,
                     cover_letter_box,
                     report_file,
-                    resume_preview,
+                    resume_preview
                 ]
             )
 
@@ -344,17 +366,6 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
                 ],
                 outputs=[
                     answer
-                ]
-            )
-
-            optimize_btn.click(
-                fn=optimize_resume,
-                inputs=[
-                    resume_file,
-                    job_description
-                ],
-                outputs=[
-                    optimized_resume_box
                 ]
             )
 
