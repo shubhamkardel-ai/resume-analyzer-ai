@@ -1,1193 +1,611 @@
-<div align="center">
+::: {align="center"}
+`<img src="https://capsule-render.vercel.app/api?type=waving&color=0:020617,25:061A3A,55:0B3B60,80:007C91,100:00F7FF&height=280&section=header&text=RecruitRAG-AI&fontSize=62&fontColor=FFFFFF&fontAlignY=38&desc=AI-Powered%20Recruitment%20Intelligence%20Platform&descAlignY=58&descSize=20&animation=fadeIn" width="100%"/>`{=html}
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B0220,20:24104F,40:4C1D95,60:6D28D9,80:8B5CF6,100:A78BFA&height=280&section=header&text=RESUME%20ANALYZER%20AI&fontSize=55&fontColor=FFFFFF&fontAlignY=38&desc=AI%20CAREER%20INTELLIGENCE%20PLATFORM&descAlignY=62&descSize=19&animation=fadeIn" width="100%"/>
+`<a href="https://recruitrag-ai-szgzxyf5eum4c9lg4xtvxq.streamlit.app/">`{=html}
+`<img src="https://img.shields.io/badge/%F0%9F%9A%80_Live_Demo-RecruitRAG--AI-00F7FF?style=for-the-badge" alt="Live Demo"/>`{=html}
+`</a>`{=html}
+`<a href="https://recruitrag-ai-api.onrender.com/docs">`{=html}
+`<img src="https://img.shields.io/badge/%F0%9F%93%9A_API_Docs-Swagger-0EA5E9?style=for-the-badge" alt="API Docs"/>`{=html}
+`</a>`{=html}
+`<a href="https://github.com/shubhamkardel-ai/RecruitRAG-AI">`{=html}
+`<img src="https://img.shields.io/badge/%F0%9F%92%BB_Source-GitHub-111827?style=for-the-badge&logo=github" alt="GitHub"/>`{=html}
+`</a>`{=html}
 
-<br>
+`<br/>`{=html}
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=19&duration=2400&pause=800&color=A78BFA&center=true&vCenter=true&width=1000&lines=CAREER+INTELLIGENCE+SYSTEM+INITIALIZED;RESUME+UNDERSTANDING+ENGINE+ONLINE;ATS+ANALYSIS+ENGINE+ONLINE;JOB+MATCHING+ENGINE+ONLINE;AI+CAREER+COACH+ONLINE;INTERVIEW+INTELLIGENCE+ONLINE;SYSTEM+READY+FOR+CAREER+ANALYSIS" />
+`<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=600&size=22&pause=900&color=00F7FF&center=true&vCenter=true&width=850&lines=Resume+Intelligence+%7C+RAG+%7C+Job+Matching;Candidate+Evaluation+%7C+Interview+Intelligence;FastAPI+%2B+Streamlit+%2B+Qdrant+%2B+Groq;From+Resume+Documents+to+Recruiter+Insights" alt="Typing animation"/>`{=html}
+:::
 
-<br><br>
+------------------------------------------------------------------------
 
-<img src="https://img.shields.io/badge/AI%20CAREER%20INTELLIGENCE-ONLINE-A78BFA?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/ATS%20ANALYSIS-ACTIVE-8B5CF6?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/JOB%20MATCHING-ACTIVE-7C3AED?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/PROJECT-COMPLETE-22C55E?style=for-the-badge&labelColor=0B0220"/>
+## 🧠 What is RecruitRAG-AI?
 
-<br><br>
+**RecruitRAG-AI** is an AI-powered recruitment intelligence platform
+that turns candidate resumes into searchable, evaluatable, and
+recruiter-friendly intelligence.
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,numpy,pandas,git,github" />
+Instead of treating a resume as a static PDF, the platform builds a
+complete pipeline:
 
-</div>
+**Resume → Document Intelligence → Candidate Evaluation → Vector
+Retrieval → RAG → Job Matching → Interview Intelligence**
 
----
+It combines deterministic recruitment logic with retrieval-augmented
+generation so that AI responses remain grounded in the indexed candidate
+information.
 
-# 🧠 What is Resume Analyzer AI?
+------------------------------------------------------------------------
 
-**Resume Analyzer AI** is an AI-powered **Career Intelligence Platform** that transforms a traditional resume into structured, actionable career insights.
+## ⚡ Platform at a Glance
 
-Instead of simply checking whether a resume contains keywords, the platform analyzes the resume from multiple perspectives:
+  -----------------------------------------------------------------------
+  Capability                          What RecruitRAG-AI does
+  ----------------------------------- -----------------------------------
+  📄 Resume Intelligence              Accepts PDF, DOCX, and TXT resumes
 
-<div align="center">
+  🧩 Document Ingestion               Extracts, cleans, and chunks resume
+                                      content
 
-| 🧠 Resume Intelligence |  🎯 Career Intelligence |
-| :--------------------: | :---------------------: |
-|  Resume Understanding  |       Job Matching      |
-|    Skill Extraction    |   Skill Gap Detection   |
-|      ATS Analysis      |     Career Feedback     |
-|   Resume Optimization  |  Interview Preparation  |
-|    Resume Analytics    | Resume-grounded AI Chat |
+  🎯 Candidate Evaluation             Calculates a deterministic
+                                      100-point candidate score
 
-</div>
+  🔎 Semantic Retrieval               Searches resume chunks using vector
+                                      similarity
 
-The platform combines:
+  💬 Recruiter RAG                    Answers candidate questions using
+                                      retrieved context
 
-**PDF Processing + NLP + Skill Intelligence + ATS Analysis + Job Matching + Visual Analytics + Generative AI**
+  🧠 Job Matching                     Compares indexed resume skills
+                                      against a job description
 
-into a single career-focused application.
+  🎤 Interview Intelligence           Generates role-specific interview
+                                      questions and evaluation points
 
----
+  ☁️ Production Deployment            FastAPI on Render + Streamlit
+                                      Cloud + Qdrant Cloud
+  -----------------------------------------------------------------------
 
-# ✨ The Intelligence Layer
+------------------------------------------------------------------------
 
-<div align="center">
+## 🚀 Core Intelligence
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=17&duration=2100&pause=650&color=C4B5FD&center=true&vCenter=true&width=900&lines=UNDERSTAND+THE+RESUME;MEASURE+THE+RESUME;COMPARE+THE+RESUME;IDENTIFY+THE+GAPS;IMPROVE+THE+RESUME;PREPARE+FOR+THE+INTERVIEW" />
+### 01 · Candidate Evaluation
 
-<br><br>
+RecruitRAG-AI evaluates an indexed candidate using six deterministic
+dimensions:
 
-<table width="95%" cellspacing="0" cellpadding="18">
+  Evaluation Dimension         Weight
+  ------------------------- ---------
+  Technical Skills                 20
+  Project Experience               20
+  Professional Experience          20
+  Education                        15
+  Certifications                   10
+  Role Relevance                   15
+  **Total**                   **100**
 
-<tr>
+### Hiring Recommendation Logic
 
-<td align="center">
+          Score Recommendation
+  ------------- ------------------
+    **80--100** 🟢 Strong Fit
+     **65--79** 🔵 Potential Fit
+     **50--64** 🟡 Needs Review
+      **0--49** 🔴 Weak Fit
 
-### 📄
+This layer is intentionally deterministic, making the primary candidate
+score explainable and reproducible.
 
-**RESUME**
+------------------------------------------------------------------------
 
-Upload and process a PDF resume.
+### 02 · Retrieval-Augmented Generation
 
-</td>
+The RAG layer transforms resume content into searchable knowledge.
 
-<td align="center">
-
-### 🧠
-
-**UNDERSTAND**
-
-Extract text, skills and career information.
-
-</td>
-
-<td align="center">
-
-### 📊
-
-**MEASURE**
-
-Calculate ATS-oriented scores.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td align="center">
-
-### 🎯
-
-**MATCH**
-
-Compare resume with job requirements.
-
-</td>
-
-<td align="center">
-
-### 💡
-
-**IMPROVE**
-
-Generate actionable recommendations.
-
-</td>
-
-<td align="center">
-
-### 🚀
-
-**PREPARE**
-
-Optimize applications and interviews.
-
-</td>
-
-</tr>
-
-</table>
-
-</div>
-
----
-
-# 🎯 Project Vision
-
-The goal of Resume Analyzer AI is simple:
-
-> **Turn a resume into a personalized career intelligence system.**
-
-Traditional resume checkers usually stop at:
-
-`Resume → Score`
-
-Resume Analyzer AI expands this into:
-
-`Resume → Understanding → Analysis → Matching → Recommendations → Optimization → Interview Preparation`
-
-This makes the platform useful throughout the complete job-application workflow.
-
----
-
-# 🌌 Platform Overview
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B0220,50:4C1D95,100:8B5CF6&height=120&section=header&text=CAREER%20INTELLIGENCE%20OS&fontSize=40&fontColor=FFFFFF&animation=fadeIn" width="90%"/>
-
-<br><br>
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=16&duration=1800&pause=500&color=C4B5FD&center=true&vCenter=true&width=900&lines=DOCUMENT+INTELLIGENCE;SKILL+INTELLIGENCE;ATS+INTELLIGENCE;JOB+INTELLIGENCE;CAREER+INTELLIGENCE;INTERVIEW+INTELLIGENCE" />
-
-</div>
-
----
-
-# 🔬 Core Features
-
-## 📄 01 — Resume Processing
-
-The platform accepts PDF resumes and extracts their textual content for downstream analysis.
-
-**Capabilities**
-
-* PDF upload
-* Text extraction
-* Resume parsing
-* Structured analysis pipeline
-* Centralized processing
-
----
-
-## 🧠 02 — Intelligent Skill Extraction
-
-The system identifies relevant technical and professional skills from the resume.
-
-Examples include:
-
-`Python` · `Machine Learning` · `Deep Learning`
-
-`PyTorch` · `Scikit-Learn` · `SQL`
-
-`NLP` · `Computer Vision` · `Generative AI`
-
-The extracted skills become the foundation for ATS analysis and job matching.
-
----
-
-## 📊 03 — ATS Scoring
-
-Resume Analyzer AI calculates an ATS-oriented score based on resume characteristics and detected information.
-
-The system evaluates areas such as:
-
-* Skill coverage
-* Education information
-* Experience indicators
-* Resume relevance
-* Job alignment
-
-The result is presented as an understandable score rather than raw processing output.
-
----
-
-## 🎯 04 — Job Matching
-
-Users can provide a target Job Description and compare it against their resume.
-
-The matching engine identifies:
-
-### ✅ Matched Skills
-
-Skills present in both the resume and target job.
-
-### ❌ Missing Skills
-
-Important skills mentioned in the job description but absent from the resume.
-
-### 📊 Match Score
-
-An overall indication of how closely the resume aligns with the target role.
-
----
-
-## 📈 05 — Visual Analytics
-
-The platform converts analysis results into visual representations.
-
-Current visualizations include:
-
-* ATS score breakdown
-* Skill distribution
-* Resume skill count
-* Job skill count
-* Matched skill count
-* Missing skill count
-* Job matching analytics
-
-The purpose is to make resume analysis easier to understand at a glance.
-
----
-
-# 🤖 AI Career Intelligence
-
-<div align="center">
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=20&duration=2300&pause=700&color=A78BFA&center=true&vCenter=true&width=950&lines=FROM+ANALYSIS+TO+INTELLIGENCE;FROM+SCORES+TO+INSIGHTS;FROM+INSIGHTS+TO+ACTION;YOUR+RESUME+BECOMES+YOUR+CAREER+DATA" />
-
-</div>
-
----
-
-## 💡 AI Career Coach
-
-The AI Career Coach uses the results of the resume analysis pipeline to provide personalized career feedback.
-
-It can help identify:
-
-* 💪 Resume strengths
-* ⚠️ Weak areas
-* ❌ Missing skills
-* 🎯 Job alignment problems
-* 📊 ATS improvement opportunities
-* 💡 Recommended improvements
-* 🧭 Career development priorities
-
-The objective is not simply to say **what is wrong**, but to explain **what can be improved**.
-
----
-
-# ✨ Resume Optimizer
-
-The Resume Optimizer extends the analysis system into resume improvement.
-
-It focuses on:
-
-* Stronger professional wording
-* Better skill presentation
-* ATS keyword alignment
-* Job-specific improvements
-* Project descriptions
-* Resume structure
-* Career positioning
-
-### Optimization Flow
-
-<div align="center">
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=18&duration=2200&pause=600&color=C4B5FD&center=true&vCenter=true&width=900&lines=READ+RESUME;%3E+IDENTIFY+WEAKNESSES;%3E+ANALYZE+TARGET+ROLE;%3E+ALIGN+KEYWORDS;%3E+IMPROVE+CONTENT;%3E+GENERATE+BETTER+RESUME+CONTENT" />
-
-</div>
-
----
-
-# 💌 AI Cover Letter Generator
-
-The platform can generate a job-focused cover letter using information from the resume and target job description.
-
-The generated content can consider:
-
-* Candidate skills
-* Projects
-* Experience
-* Target role
-* Job requirements
-* Relevant strengths
-
-This creates a complete application workflow:
-
-**Resume → Job Match → Resume Optimization → Cover Letter**
-
----
-
-# 📄 ATS Report Generator
-
-Resume analysis can be converted into a downloadable ATS-oriented report.
-
-The report can contain:
-
-| Analysis         | Output                      |
-| ---------------- | --------------------------- |
-| 📊 ATS Score     | Overall resume score        |
-| 📈 ATS Breakdown | Score distribution          |
-| 🧠 Resume Skills | Detected skills             |
-| 💼 Job Skills    | Required skills             |
-| ✅ Matched Skills | Matching capabilities       |
-| ❌ Missing Skills | Skill gaps                  |
-| 🎯 Job Match     | Alignment score             |
-| 📋 Suggestions   | Improvement recommendations |
-| 🤖 AI Feedback   | Career intelligence         |
-
----
-
-# 🎤 AI Interview Coach
-
-Resume Analyzer AI extends beyond resume preparation into **interview preparation**.
-
-The interview system can generate questions based on:
-
-* Resume content
-* Skills
-* Projects
-* Experience
-* Target job description
-* Technical requirements
-
-### Interview Intelligence
-
-<div align="center">
-
-<table width="90%" cellspacing="0" cellpadding="18">
-
-<tr>
-
-<td align="center">
-
-🎯
-
-**QUESTION GENERATION**
-
-Role-specific interview questions.
-
-</td>
-
-<td align="center">
-
-🧠
-
-**ANSWER ANALYSIS**
-
-Evaluate candidate responses.
-
-</td>
-
-<td align="center">
-
-💻
-
-**TECHNICAL EVALUATION**
-
-Assess technical understanding.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td align="center">
-
-💬
-
-**COMMUNICATION**
-
-Analyze answer clarity.
-
-</td>
-
-<td align="center">
-
-🎤
-
-**CONFIDENCE**
-
-Evaluate response confidence.
-
-</td>
-
-<td align="center">
-
-📈
-
-**FEEDBACK**
-
-Provide actionable improvements.
-
-</td>
-
-</tr>
-
-</table>
-
-</div>
-
----
-
-# 💬 Resume Chat
-
-Resume Chat enables users to interact with their uploaded resume through natural-language questions.
-
-### Example Questions
-
-```text
-What technical skills are present in my resume?
-
-What machine learning projects have I completed?
-
-What programming languages do I know?
-
-What are my strongest technical areas?
-
-What skills am I missing for this job?
-
-What experience do I have with Python?
-
-What projects should I highlight during an interview?
-```
-
-The objective is to make the resume **interactive rather than static**.
-
----
-
-# 🧬 System Architecture
-
-<div align="center">
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=18&duration=2000&pause=600&color=A78BFA&center=true&vCenter=true&width=900&lines=INITIALIZING+DOCUMENT+LAYER;INITIALIZING+INTELLIGENCE+LAYER;INITIALIZING+CAREER+LAYER;SYSTEM+ARCHITECTURE+READY" />
-
-</div>
-
-```mermaid
-flowchart TD
-
-    A[📄 Resume PDF] --> B[PDF Text Extraction]
-
-    B --> C[🧠 Resume Intelligence]
-
-    C --> D[Skill Extraction]
-
-    D --> E[📊 ATS Analysis]
-
-    D --> F[🎯 Job Matching]
-
-    F --> G[✅ Matched Skills]
-
-    F --> H[❌ Missing Skills]
-
-    E --> I[📈 Visual Analytics]
-
-    G --> I
-    H --> I
-
-    I --> J[🤖 AI Career Coach]
-
-    J --> K[✨ Resume Optimizer]
-
-    J --> L[💌 Cover Letter Generator]
-
-    J --> M[📄 ATS Report]
-
-    M --> N[🎤 Interview Coach]
-
-    N --> O[🧠 Answer Evaluation]
-
-    C --> P[💬 Resume Chat]
-```
-
----
-
-# 🔄 End-to-End Intelligence Pipeline
-
-```mermaid
+``` mermaid
 flowchart LR
-
-    A[Resume] --> B[Extract]
-    B --> C[Understand]
-    C --> D[Analyze]
-    D --> E[Match]
-    E --> F[Identify Gaps]
-    F --> G[Generate Insights]
-    G --> H[Optimize]
-    H --> I[Prepare]
-    I --> J[Improve Career Outcome]
+    A[Resume PDF DOCX TXT] --> B[Document Extraction]
+    B --> C[Chunking]
+    C --> D[FastEmbed<br/>BAAI/bge-small-en-v1.5]
+    D --> E[384-D Embeddings]
+    E --> F[(Qdrant<br/>Cosine Search)]
+    F --> G[Top-K Relevant Context]
+    G --> H[Groq LLM]
+    H --> I[Grounded Recruiter Answer]
 ```
 
-<div align="center">
+The generation prompt explicitly instructs the assistant to use
+retrieved context, avoid inventing candidate information, and state when
+the requested information is unavailable.
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=17&duration=1900&pause=500&color=C4B5FD&center=true&vCenter=true&width=950&lines=DOCUMENT+%E2%86%92+UNDERSTANDING+%E2%86%92+INTELLIGENCE+%E2%86%92+ACTION;THE+PIPELINE+TURNS+RESUME+DATA+INTO+CAREER+DECISIONS" />
+------------------------------------------------------------------------
 
-</div>
+### 03 · Job Description Matching
 
----
+Recruiters can paste a target job description and compare it against the
+indexed resume.
 
-# 🧩 Modular Project Architecture
+The matching engine:
 
-The project follows a modular Python architecture where individual components handle dedicated responsibilities.
+-   extracts recognized skills from the job description
+-   checks those skills against the indexed resume
+-   calculates a percentage match
+-   separates matching skills from missing skills
 
-```text
-resume-analyzer-ai/
+**Example production validation:**
+
+> **83% Job Match**\
+> Matching: Python, SQL, Pandas, Power BI, Machine Learning\
+> Missing: Docker
+
+------------------------------------------------------------------------
+
+### 04 · AI Interview Intelligence
+
+RecruitRAG-AI can generate a structured interview guide from the indexed
+resume and target job description.
+
+The guide contains:
+
+1.  **Technical Interview Questions**
+2.  **Project-Based Questions**
+3.  **Experience-Based Questions**
+4.  **Skill-Gap Questions**
+5.  **Behavioral Questions**
+6.  **Interviewer Evaluation Points**
+
+This connects candidate evidence with the actual requirements of the
+target role.
+
+------------------------------------------------------------------------
+
+## 🔄 End-to-End Recruitment Workflow
+
+``` mermaid
+flowchart TD
+    A[Recruiter uploads resume] --> B[FastAPI Document API]
+    B --> C[PDF / DOCX / TXT Extraction]
+    C --> D[Text Chunking]
+    D --> E[Candidate Evaluation]
+    D --> F[FastEmbed]
+    F --> G[(Qdrant Vector Database)]
+
+    G --> H[RAG Recruiter Assistant]
+    G --> I[Job Description Matching]
+    G --> J[Interview Intelligence]
+
+    I --> K[Match Score + Skill Gaps]
+    J --> L[Interview Guide]
+    H --> M[Grounded Candidate Answers]
+    E --> N[Hiring Recommendation]
+```
+
+------------------------------------------------------------------------
+
+## 🏗️ Production Architecture
+
+``` mermaid
+flowchart LR
+    U[Recruiter] --> S[Streamlit Cloud<br/>Recruiter Dashboard]
+    S --> R[Render<br/>FastAPI Backend]
+
+    R --> Q[(Qdrant Cloud<br/>Vector Database)]
+    R --> G[Groq<br/>LLM]
+
+    R --> E[FastEmbed<br/>Embeddings]
+    R --> D[Document Processing]
+
+    Q --> R
+    G --> R
+
+    R --> S
+    S --> U
+```
+
+### Deployment Stack
+
+  Layer               Technology
+  ------------------- ------------------------------------
+  Frontend            Streamlit
+  Backend             FastAPI
+  Vector Database     Qdrant Cloud
+  Local Vector DB     Qdrant Docker
+  Embeddings          FastEmbed · BAAI/bge-small-en-v1.5
+  LLM                 Groq
+  Containerization    Docker
+  Backend Hosting     Render
+  Frontend Hosting    Streamlit Cloud
+  API Documentation   FastAPI / Swagger
+
+> **Deployment note:** the current Render backend uses the free tier, so
+> the service may sleep after inactivity and require a cold start.
+
+------------------------------------------------------------------------
+
+## 🧩 Modular Project Architecture
+
+``` text
+RecruitRAG-AI/
 │
-├── analyzer/
+├── app/
+│   ├── api/
+│   │   └── routes/
+│   │       ├── documents.py
+│   │       ├── matching.py
+│   │       └── interview.py
 │   │
-│   ├── __init__.py
-│   ├── pdf_reader.py
-│   ├── skill_extractor.py
-│   ├── ats_score.py
-│   ├── jd_matcher.py
-│   ├── ai_feedback.py
-│   ├── chart_generator.py
-│   ├── resume_service.py
-│   └── suggestions.py
+│   ├── evaluation/
+│   │   └── evaluator.py
+│   │
+│   ├── generation/
+│   │   ├── llm.py
+│   │   ├── prompts.py
+│   │   └── response_generator.py
+│   │
+│   ├── ingestion/
+│   │   └── pipeline.py
+│   │
+│   ├── interview/
+│   │   ├── job_interviewer.py
+│   │   └── interview_service.py
+│   │
+│   ├── matching/
+│   │   ├── job_matcher.py
+│   │   └── matching_service.py
+│   │
+│   ├── retrieval/
+│   │   ├── embeddings.py
+│   │   ├── retriever.py
+│   │   └── vector_store.py
+│   │
+│   ├── services/
+│   │   └── document_service.py
+│   │
+│   └── rag_pipeline.py
 │
-├── assets/
-│   └── charts/
+├── data/
+│   └── uploads/
 │
-├── app.py
+├── Dockerfile
+├── docker-compose.yml
+├── main.py
+├── streamlit_app.py
 ├── requirements.txt
-├── README.md
-└── .gitignore
+├── .env.example
+├── .gitignore
+└── README.md
 ```
 
----
+------------------------------------------------------------------------
 
-# 🧠 Module Intelligence Map
+## 🔌 API Surface
 
-| Module               | Responsibility               |
-| -------------------- | ---------------------------- |
-| `pdf_reader.py`      | Resume PDF text extraction   |
-| `skill_extractor.py` | Skill detection              |
-| `ats_score.py`       | ATS score calculation        |
-| `jd_matcher.py`      | Resume-JD matching           |
-| `ai_feedback.py`     | AI-generated feedback        |
-| `chart_generator.py` | Analysis visualizations      |
-| `resume_service.py`  | Central analysis workflow    |
-| `suggestions.py`     | ATS improvement suggestions  |
-| `app.py`             | Gradio application interface |
+  -----------------------------------------------------------------------
+  Method                  Endpoint                Purpose
+  ----------------------- ----------------------- -----------------------
+  `POST`                  `/documents/upload`     Upload and index a
+                                                  resume
 
----
+  `POST`                  `/chat/ask`             Ask grounded questions
+                                                  about indexed content
 
-# 🏗️ Engineering Design
+  `POST`                  `/matching/match`       Match resume against a
+                                                  job description
 
-A major design decision in the project was introducing a centralized analysis service.
+  `POST`                  `/interview/generate`   Generate a
+                                                  role-specific interview
+                                                  guide
 
-### `resume_service.py`
+  `GET`                   `/docs`                 Interactive Swagger API
+                                                  documentation
+  -----------------------------------------------------------------------
 
-Instead of allowing the UI to directly coordinate every analysis module, the application can use a centralized service layer.
+### Example Request
 
-This provides:
-
-* Cleaner UI logic
-* Better separation of concerns
-* Reusable analysis workflow
-* Easier debugging
-* Easier future API integration
-* Better maintainability
-* Cleaner project architecture
-
-### Concept
-
-```text
-                USER INTERFACE
-                      │
-                      ▼
-              RESUME SERVICE
-                      │
-        ┌─────────────┼─────────────┐
-        ▼             ▼             ▼
-      PDF          SKILLS          ATS
-      ENGINE       ENGINE         ENGINE
-        │             │             │
-        └─────────────┼─────────────┘
-                      │
-                      ▼
-                JOB MATCHING
-                      │
-                      ▼
-               AI INTELLIGENCE
-                      │
-                      ▼
-                  OUTPUTS
+``` json
+{
+  "job_description": "We are looking for an AI/ML Engineer with strong Python, SQL, Machine Learning, Pandas, NumPy, Scikit-learn and FastAPI skills."
+}
 ```
 
----
+------------------------------------------------------------------------
 
-# 🎨 User Interface
+## 🛠️ Tech Stack
 
-The project uses **Gradio** to provide an interactive AI application interface.
+::: {align="center"}
+`<img src="https://skillicons.dev/icons?i=python,fastapi,docker,git,github,streamlit&theme=dark" alt="Core technologies"/>`{=html}
 
-The interface is designed around the complete analysis workflow:
+`<br/>`{=html}`<br/>`{=html}
 
-<div align="center">
+`<img src="https://img.shields.io/badge/Qdrant-Vector%20Database-DC2626?style=flat-square&logo=qdrant&logoColor=white"/>`{=html}
+`<img src="https://img.shields.io/badge/FastEmbed-Embeddings-7C3AED?style=flat-square"/>`{=html}
+`<img src="https://img.shields.io/badge/Groq-LLM-111827?style=flat-square"/>`{=html}
+`<img src="https://img.shields.io/badge/PDF-DOCX-TXT-0EA5E9?style=flat-square"/>`{=html}
+:::
 
-<table width="95%" cellspacing="0" cellpadding="16">
+------------------------------------------------------------------------
 
-<tr>
+## 💻 Local Setup
 
-<td align="center">📄<br><b>UPLOAD</b><br>Resume PDF</td>
+### 1. Clone the repository
 
-<td align="center">🎯<br><b>COMPARE</b><br>Job Description</td>
-
-<td align="center">🚀<br><b>ANALYZE</b><br>Run AI Analysis</td>
-
-<td align="center">📊<br><b>UNDERSTAND</b><br>View Results</td>
-
-</tr>
-
-<tr>
-
-<td align="center">🤖<br><b>COACH</b><br>AI Feedback</td>
-
-<td align="center">✨<br><b>OPTIMIZE</b><br>Improve Resume</td>
-
-<td align="center">🎤<br><b>PRACTICE</b><br>Interview</td>
-
-<td align="center">💬<br><b>CHAT</b><br>Resume Chat</td>
-
-</tr>
-
-</table>
-
-</div>
-
----
-
-# 🛠️ Technology Stack
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,numpy,pandas,git,github,vscode,pycharm" />
-
-<br><br>
-
-<img src="https://img.shields.io/badge/Python-3.x-A78BFA?style=for-the-badge&logo=python&logoColor=white&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/Gradio-UI-8B5CF6?style=for-the-badge&logo=gradio&logoColor=white&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/Scikit--Learn-ML-7C3AED?style=for-the-badge&logo=scikit-learn&logoColor=white&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/PyTorch-DL-8B5CF6?style=for-the-badge&logo=pytorch&logoColor=white&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/Pandas-Data-7C3AED?style=for-the-badge&logo=pandas&logoColor=white&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/NumPy-Computing-A78BFA?style=for-the-badge&logo=numpy&logoColor=white&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/Matplotlib-Analytics-8B5CF6?style=for-the-badge&logo=python&logoColor=white&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/Git-Version%20Control-7C3AED?style=for-the-badge&logo=git&logoColor=white&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/GitHub-Repository-A78BFA?style=for-the-badge&logo=github&logoColor=white&labelColor=0B0220"/>
-
-</div>
-
----
-
-# ⚙️ Technology Responsibilities
-
-| Technology            | Purpose                      |
-| --------------------- | ---------------------------- |
-| 🐍 **Python**         | Core application development |
-| 🎨 **Gradio**         | Interactive web interface    |
-| 📄 **PDF Processing** | Resume document extraction   |
-| 🧠 **NLP**            | Text and skill analysis      |
-| 📊 **Scikit-Learn**   | Machine learning utilities   |
-| 🔥 **PyTorch**        | Deep learning ecosystem      |
-| 🐼 **Pandas**         | Data processing              |
-| 🔢 **NumPy**          | Numerical computation        |
-| 📈 **Matplotlib**     | Data visualization           |
-| 🤗 **Hugging Face**   | AI / LLM integration         |
-| 🔧 **Git**            | Version control              |
-| 🐙 **GitHub**         | Repository management        |
-
----
-
-# 🚀 Installation
-
-## 01 — Clone
-
-```bash
-git clone https://github.com/shubhamkardel-ai/resume-analyzer-ai.git
-
-cd resume-analyzer-ai
+``` bash
+git clone https://github.com/shubhamkardel-ai/RecruitRAG-AI.git
+cd RecruitRAG-AI
 ```
 
-## 02 — Virtual Environment
+### 2. Create a virtual environment
 
-### Windows
-
-```bash
+``` bash
 python -m venv .venv
-
-.venv\Scripts\activate
 ```
 
-### Linux / macOS
+### 3. Activate it
 
-```bash
-python3 -m venv .venv
+**Windows PowerShell**
 
-source .venv/bin/activate
+``` powershell
+.venv\Scripts\Activate.ps1
 ```
 
-## 03 — Dependencies
+### 4. Install dependencies
 
-```bash
+``` bash
 pip install -r requirements.txt
 ```
 
----
+### 5. Configure environment variables
 
-# 🔐 Environment Configuration
+Create `.env` from `.env.example`.
 
-If AI model access requires authentication, create:
+``` env
+GROQ_API_KEY=your_groq_api_key
+LLM_MODEL=openai/gpt-oss-120b
 
-```text
-.env
+QDRANT_URL=
+QDRANT_API_KEY=
 ```
 
-Example:
+For local development, Qdrant can run through Docker.
 
-```env
-HF_TOKEN=your_huggingface_token
-HF_MODEL=your_model_name
+### 6. Start Qdrant
+
+``` bash
+docker compose up -d qdrant
 ```
 
-### Never commit:
+### 7. Start the FastAPI backend
 
-```text
-.env
-.venv/
-__pycache__/
-*.pyc
-.idea/
-.vscode/
+``` bash
+uvicorn main:app --reload --port 8000
 ```
 
----
+### 8. Start Streamlit
 
-# ▶️ Run the Application
+Open another terminal:
 
-```bash
-python app.py
+``` bash
+streamlit run streamlit_app.py
 ```
 
-The Gradio interface will normally be available at:
+The local application will normally be available at:
 
-```text
-http://127.0.0.1:7860
+``` text
+http://localhost:8501
 ```
 
----
+Swagger:
 
-# 🧪 How to Use
-
-<div align="center">
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=18&duration=1900&pause=550&color=A78BFA&center=true&vCenter=true&width=900&lines=STEP+01+%7C+UPLOAD+RESUME;STEP+02+%7C+ADD+JOB+DESCRIPTION;STEP+03+%7C+RUN+ANALYSIS;STEP+04+%7C+UNDERSTAND+RESULTS;STEP+05+%7C+OPTIMIZE;STEP+06+%7C+PREPARE+FOR+INTERVIEW" />
-
-</div>
-
-| Step   | Action                        |
-| ------ | ----------------------------- |
-| **01** | 📄 Upload Resume PDF          |
-| **02** | 📝 Add target Job Description |
-| **03** | 🚀 Run analysis               |
-| **04** | 📊 Review ATS score           |
-| **05** | 🧠 Review extracted skills    |
-| **06** | 🎯 Check job match            |
-| **07** | ❌ Identify missing skills     |
-| **08** | 🤖 Review AI feedback         |
-| **09** | ✨ Optimize resume             |
-| **10** | 💌 Generate cover letter      |
-| **11** | 📄 Generate ATS report        |
-| **12** | 🎤 Practice interview         |
-| **13** | 💬 Chat with resume           |
-
----
-
-# 📊 Analysis Dashboard
-
-The platform produces multiple layers of career intelligence.
-
-```text
-RESUME
-   │
-   ├── ATS SCORE
-   │
-   ├── SKILLS
-   │
-   ├── EXPERIENCE
-   │
-   ├── EDUCATION
-   │
-   └── PROJECT INFORMATION
-          │
-          ▼
-       JOB MATCH
-          │
-     ┌────┴────┐
-     ▼         ▼
-  MATCHED    MISSING
-  SKILLS     SKILLS
-     │         │
-     └────┬────┘
-          ▼
-    AI CAREER INSIGHTS
-          │
-     ┌────┼────┐
-     ▼    ▼    ▼
- OPTIMIZE COVER INTERVIEW
-          │
-          ▼
-     CAREER ACTION
+``` text
+http://localhost:8000/docs
 ```
 
----
+------------------------------------------------------------------------
 
-# 🎯 Target Roles
+## 🐳 Docker
 
-Resume Analyzer AI can be used to evaluate resumes against roles such as:
+The project includes Docker configuration for running the application
+stack.
 
-<div align="center">
-
-<img src="https://img.shields.io/badge/AI%20ENGINEER-8B5CF6?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/ML%20ENGINEER-7C3AED?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/DATA%20SCIENTIST-A78BFA?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/NLP%20ENGINEER-8B5CF6?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/COMPUTER%20VISION-7C3AED?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/GENAI%20ENGINEER-A78BFA?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/PYTHON%20DEVELOPER-8B5CF6?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/AI%2FML%20INTERN-7C3AED?style=for-the-badge&labelColor=0B0220"/>
-
-</div>
-
----
-
-# 📈 Project Status
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B0220,50:4C1D95,100:8B5CF6&height=110&section=header&text=PROJECT%20COMPLETE&fontSize=38&fontColor=FFFFFF&animation=fadeIn" width="90%"/>
-
-<br><br>
-
-<img src="https://img.shields.io/badge/CORE%20ANALYSIS-COMPLETE-22C55E?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/AI%20FEATURES-COMPLETE-22C55E?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/UI-COMPLETE-22C55E?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/REPORTING-COMPLETE-22C55E?style=for-the-badge&labelColor=0B0220"/>
-
-</div>
-
-### Completed Core System
-
-```text
-✓ PDF Resume Processing
-✓ Skill Extraction
-✓ ATS Scoring
-✓ ATS Breakdown
-✓ Job Description Matching
-✓ Matched Skill Detection
-✓ Missing Skill Detection
-✓ Skill Analytics
-✓ ATS Charts
-✓ AI Career Feedback
-✓ Resume Optimization
-✓ Cover Letter Generation
-✓ ATS PDF Reports
-✓ AI Interview Coach
-✓ Interview Answer Evaluation
-✓ Resume Chat
-✓ Modular Architecture
-✓ Centralized Resume Service
-✓ Gradio Interface
+``` bash
+docker compose up --build
 ```
 
-<div align="center">
+The local development architecture can run:
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=17&duration=1900&pause=600&color=22C55E&center=true&vCenter=true&width=900&lines=ALL+CORE+MODULES+OPERATIONAL;CAREER+INTELLIGENCE+PIPELINE+COMPLETE;RESUME+ANALYSIS+SYSTEM+READY;PROJECT+STATUS%3A+COMPLETE" />
+-   FastAPI backend
+-   Streamlit frontend
+-   Qdrant vector database
 
-</div>
+------------------------------------------------------------------------
 
----
+## 🎯 How to Use
 
-# 🔮 Future Evolution
+### Step 1 --- Upload a Resume
 
-The current application is **complete as a functional portfolio project**.
+Upload a:
 
-Future versions may extend the system toward a more advanced production architecture.
+-   PDF
+-   DOCX
+-   TXT
 
-## 🟣 Advanced NLP
+RecruitRAG-AI extracts and chunks the content, evaluates the candidate,
+generates embeddings, and indexes the chunks.
 
-* Semantic skill matching
-* Transformer embeddings
-* Sentence similarity
-* Semantic resume understanding
-* Context-aware job matching
+### Step 2 --- Review Candidate Intelligence
 
-## 🔵 Knowledge Intelligence
+The dashboard presents:
 
-* Vector database integration
-* Resume knowledge retrieval
-* Job knowledge base
-* Semantic search
-* Retrieval-Augmented Generation
+-   candidate score
+-   recommendation
+-   evaluation breakdown
+-   AI hiring insights
+-   candidate summary
 
-## 🟢 Production Engineering
+### Step 3 --- Ask Recruiter Questions
 
-* FastAPI backend
-* Authentication
-* Resume history
-* Database integration
-* Docker deployment
-* Cloud deployment
-* CI/CD
-* MLOps monitoring
+Use the RAG assistant to ask questions such as:
 
-## 🟠 Career Intelligence
-
-* Personalized career paths
-* Job recommendation engine
-* Skill learning recommendations
-* Resume version comparison
-* Career progress tracking
-
-> These are **future expansion ideas**, not claims about the current implementation.
-
----
-
-# 🌐 Future Architecture
-
-```mermaid
-flowchart TD
-
-    A[USER] --> B[WEB APPLICATION]
-
-    B --> C[API LAYER]
-
-    C --> D[RESUME INTELLIGENCE]
-
-    D --> E[NLP ENGINE]
-
-    E --> F[EMBEDDING ENGINE]
-
-    F --> G[KNOWLEDGE LAYER]
-
-    G --> H[VECTOR DATABASE]
-
-    H --> I[LLM INTELLIGENCE]
-
-    I --> J[CAREER ENGINE]
-
-    J --> K[RECOMMENDATION SYSTEM]
-
-    K --> L[PERSONALIZED CAREER INSIGHTS]
+``` text
+What are the candidate's technical skills?
 ```
 
----
-
-# 🧠 Engineering Lessons
-
-Building Resume Analyzer AI provided practical experience across multiple areas of AI engineering.
-
-<div align="center">
-
-<table width="95%" cellspacing="0" cellpadding="15">
-
-<tr>
-
-<td align="center">
-
-🐍
-
-### PYTHON
-
-Application architecture and modular development.
-
-</td>
-
-<td align="center">
-
-🧠
-
-### NLP
-
-Text processing and skill intelligence.
-
-</td>
-
-<td align="center">
-
-📊
-
-### ML
-
-Scoring and matching systems.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td align="center">
-
-🤖
-
-### GENAI
-
-AI-powered career features.
-
-</td>
-
-<td align="center">
-
-📈
-
-### ANALYTICS
-
-Visual interpretation of results.
-
-</td>
-
-<td align="center">
-
-🏗️
-
-### ARCHITECTURE
-
-Service-oriented modular design.
-
-</td>
-
-</tr>
-
-</table>
-
-</div>
-
----
-
-# 🔒 Security
-
-Never expose authentication credentials inside the repository.
-
-Keep sensitive information inside environment variables.
-
-```env
-HF_TOKEN=your_huggingface_token
-HF_MODEL=your_model_name
+``` text
+What projects has the candidate worked on?
 ```
 
-Recommended `.gitignore`:
-
-```gitignore
-.env
-.venv/
-__pycache__/
-*.pyc
-.idea/
-.vscode/
+``` text
+What Python experience is mentioned in the resume?
 ```
 
----
+### Step 4 --- Compare With a Job
 
-# 🤝 Contributing
+Paste a job description to receive:
 
-Contributions, ideas and improvements are welcome.
+-   match percentage
+-   matching skills
+-   missing skills
 
-```bash
-git checkout -b feature/your-feature
+### Step 5 --- Generate an Interview Guide
 
-git add .
+Paste a target job description and generate a structured interview guide
+based on the indexed candidate.
 
-git commit -m "feat: add your feature"
+------------------------------------------------------------------------
 
-git push origin feature/your-feature
-```
+## 📊 Production Validation
 
-Then create a Pull Request.
+The deployed platform has been validated across its major recruitment
+workflows.
 
----
+  Test                         Result
+  ---------------------------- -------------------------
+  Resume upload                ✅ Passed
+  PDF extraction               ✅ Passed
+  Resume chunking              ✅ Passed
+  Candidate evaluation         ✅ 98/100 · Strong Fit
+  Vector indexing              ✅ 3 chunks / 3 vectors
+  RAG question answering       ✅ Passed
+  Job matching                 ✅ 83% validation
+  Interview guide generation   ✅ Passed
+  Streamlit → Render API       ✅ Passed
+  Qdrant Cloud retrieval       ✅ Passed
 
-# 📜 License
+### Example Evaluation
 
-This project is intended for **educational, portfolio and research purposes**.
+**Candidate Score:** `98 / 100`\
+**Recommendation:** `Strong Fit`
 
-If the project is distributed publicly, an appropriate open-source license should be added to the repository.
+### Example Match
 
----
+**Job Match:** `83%`
 
-# 👨‍💻 Author
+**Matching skills:** Python · SQL · Pandas · Power BI · Machine Learning
 
-<div align="center">
+**Missing skill:** Docker
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B0220,50:4C1D95,100:8B5CF6&height=130&section=header&text=SHUBHAM%20KARDEL&fontSize=42&fontColor=FFFFFF&animation=fadeIn" width="85%"/>
+------------------------------------------------------------------------
 
-<br><br>
+## 🔐 Security
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=20&duration=2300&pause=700&color=C4B5FD&center=true&vCenter=true&width=900&lines=AI%2FML+ENGINEER;PYTHON+DEVELOPER;INTELLIGENT+SYSTEMS+BUILDER;BUILDING+AI+APPLICATIONS;LEARNING+%7C+BUILDING+%7C+IMPROVING" />
+RecruitRAG-AI follows a basic production-oriented secret-management
+approach:
 
-<br><br>
+-   API keys are stored in environment variables.
+-   `.env` is excluded from Git.
+-   `.env.example` contains placeholders only.
+-   Production secrets belong to the backend deployment environment.
+-   Secrets should never be committed to GitHub.
+-   If a real credential is ever exposed, it should be revoked and
+    rotated immediately.
 
-<a href="https://github.com/shubhamkardel-ai">
-<img src="https://img.shields.io/badge/GITHUB-SHUBHAMKARDEL--AI-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
+------------------------------------------------------------------------
 
-<a href="https://www.linkedin.com/in/shubham-kardel-303356312/">
-<img src="https://img.shields.io/badge/LINKEDIN-SHUBHAM%20KARDEL-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
+## 🧠 Engineering Principles
 
-</div>
+RecruitRAG-AI is designed around several practical engineering
+principles:
 
----
+**Grounded AI**\
+LLM responses are generated from retrieved candidate context rather than
+unrestricted model knowledge.
 
-# 🌟 Final Message
+**Deterministic Evaluation**\
+The primary candidate score is rule-based and reproducible.
 
-<div align="center">
+**Modular Architecture**\
+Ingestion, evaluation, retrieval, generation, matching, and interview
+logic are separated into dedicated services.
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=22&duration=2300&pause=700&color=A78BFA&center=true&vCenter=true&width=1000&lines=RESUME+ANALYSIS+IS+ONLY+THE+BEGINNING;UNDERSTAND+YOUR+SKILLS;DISCOVER+YOUR+GAPS;OPTIMIZE+YOUR+APPLICATION;PREPARE+FOR+YOUR+INTERVIEW;BUILD+A+BETTER+CAREER" />
+**API-First Backend**\
+Recruitment intelligence is exposed through FastAPI endpoints and can be
+consumed by the Streamlit frontend.
 
-<br><br>
+**Production-Aware Design**\
+The project separates local development infrastructure from cloud
+deployment infrastructure.
 
-<table width="85%" cellspacing="0" cellpadding="25">
+------------------------------------------------------------------------
 
-<tr>
+## 🔮 Future Evolution
 
-<td align="center">
+These are planned directions, not current features:
 
-### 🚀 Resume Analyzer AI
+-   Multi-resume candidate comparison
+-   Recruiter ranking and shortlist workflows
+-   Advanced semantic job matching
+-   Candidate skill-gap analytics
+-   Interview answer evaluation
+-   Recruiter conversation memory
+-   Better document deduplication and versioning
+-   Authentication and role-based access
+-   Observability and production monitoring
+-   Evaluation datasets and automated RAG quality benchmarks
 
-<br>
+------------------------------------------------------------------------
 
-**Understand. Analyze. Match. Improve. Prepare.**
+## 🌐 Live Project
 
-<br>
+::: {align="center"}
+### 🚀 RecruitRAG-AI
 
-A complete AI-powered career intelligence platform designed to transform resume data into actionable career insights.
+`<a href="https://recruitrag-ai-szgzxyf5eum4c9lg4xtvxq.streamlit.app/">`{=html}
+`<img src="https://img.shields.io/badge/%F0%9F%96%A5%EF%B8%8F_Open_Live_App-00F7FF?style=for-the-badge&logo=streamlit&logoColor=111827" alt="Open Live App"/>`{=html}
+`</a>`{=html}
 
-<br><br>
+`<a href="https://recruitrag-ai-api.onrender.com/docs">`{=html}
+`<img src="https://img.shields.io/badge/%F0%9F%94%8C_Open_API-0EA5E9?style=for-the-badge&logo=fastapi&logoColor=white" alt="Open API"/>`{=html}
+`</a>`{=html}
 
-<img src="https://img.shields.io/badge/BUILD-INTELLIGENCE-A78BFA?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/LEARN-CONTINUOUSLY-8B5CF6?style=for-the-badge&labelColor=0B0220"/>
-<img src="https://img.shields.io/badge/IMPROVE-EVERY%20VERSION-7C3AED?style=for-the-badge&labelColor=0B0220"/>
+`<a href="https://github.com/shubhamkardel-ai/RecruitRAG-AI">`{=html}
+`<img src="https://img.shields.io/badge/%F0%9F%92%BB_View_Source-111827?style=for-the-badge&logo=github&logoColor=white" alt="View Source"/>`{=html}
+`</a>`{=html}
+:::
 
-<br><br>
+------------------------------------------------------------------------
 
-⭐ **If you find the project useful, consider giving it a star.** ⭐
+## 👨‍💻 Author
 
-</td>
+::: {align="center"}
+### **Shubham Kardel**
 
-</tr>
+**Aspiring AI/ML Engineer · Python Developer · GenAI Builder**
 
-</table>
+`<a href="https://github.com/shubhamkardel-ai">`{=html}
+`<img src="https://img.shields.io/badge/GitHub-shubhamkardel--ai-111827?style=for-the-badge&logo=github"/>`{=html}
+`</a>`{=html}
 
-<br>
+`<a href="https://www.linkedin.com/in/shubham-kardel-303356312/">`{=html}
+`<img src="https://img.shields.io/badge/LinkedIn-Shubham%20Kardel-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>`{=html}
+`</a>`{=html}
+:::
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Space+Mono&size=18&duration=2200&pause=650&color=C4B5FD&center=true&vCenter=true&width=900&lines=CAREER+INTELLIGENCE+SYSTEM+OFFLINE;PROJECT+COMPLETE;THE+NEXT+BUILD+BEGINS..." />
+------------------------------------------------------------------------
 
-<br><br>
+::: {align="center"}
+`<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=500&size=18&pause=1200&color=00F7FF&center=true&vCenter=true&width=750&lines=Build+with+Purpose.;Retrieve+with+Context.;Generate+with+Grounding.;Engineer+for+Reality." alt="Closing animation"/>`{=html}
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8B5CF6,20:7C3AED,40:6D28D9,60:4C1D95,80:24104F,100:0B0220&height=180&section=footer&animation=fadeIn" width="100%"/>
+`<br/>`{=html}
 
-</div>
+`<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00F7FF,35:007C91,70:061A3A,100:020617&height=130&section=footer&animation=fadeIn" width="100%"/>`{=html}
+:::
