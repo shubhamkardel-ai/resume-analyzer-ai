@@ -368,5 +368,4 @@ ATS scoring, intelligent job matching, and AI-powered resume feedback.
 # ==========================================================
 
 if __name__ == "__main__":
-    print("THIS IS MY APP")
     demo.launch()
